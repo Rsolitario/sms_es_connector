@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menú Principal -->
+    <menuitem id="sms_es_connector_root_menu"
+              name="SMS España"
+              sequence="50"/>
+    
+    <!-- Acción para abrir la vista de mensajes -->
+    <record id="sms_es_message_action" model="ir.actions.act_window">
+        <field name="name">Mensajes SMS</field>
+        <field name="res_model">sms_es.message</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para ver los mensajes enviados -->
+    <menuitem id="sms_es_message_menu"
+              name="Mensajes Enviados"
+              parent="sms_es_connector_root_menu"
+              action="sms_es_message_action"
+              sequence="10"/>
+
+    <!-- Acción para abrir la vista de la cola -->
+    <record id="sms_es_queue_job_action" model="ir.actions.act_window">
+        <field name="name">Cola de Trabajos SMS</field>
+        <field name="res_model">sms_es.queue_job</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú para ver la cola de trabajos (útil para depuración) -->
+    <menuitem id="sms_es_queue_job_menu"
+              name="Cola de Envío"
+              parent="sms_es_connector_root_menu"
+              action="sms_es_queue_job_action"
+              sequence="20"/>
+
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Formulario del Asistente -->
+    <record id="sms_es_compose_wizard_view_form" model="ir.ui.view">
+        <field name="name">sms_es.compose.wizard.form</field>
+        <field name="model">sms_es.compose.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Enviar Mensaje SMS">
+                <group>
+                    <field name="sender"/>
+                    <field name="text" widget="textarea" placeholder="Escriba su mensaje aquí..."/>
+                    <field name="dcs" widget="radio"/>
+                </group>
+
+                <group string="Opciones Avanzadas" name="advanced_options">
+                    <field name="config_use_flash" invisible="1"/>
+                    <field name="config_use_validate_period" invisible="1"/>
+                    
+                    <div invisible="not config_use_flash">
+                        <field name="use_flash"/>
+                    </div>
+                    <!-- attr compatibilidad por preparar-->
+                    <div invisible="not config_use_validate_period">
+                        <field name="use_validate_period"/>
+                        <label for="validate_period_minutes" invisible="not use_validate_period" />
+                        <div class="o_row" invisible="not use_validate_period">
+                            <field name="validate_period_minutes"/>
+                            <span>minutos</span>
+                        </div>
+                    </div>
+                </group>
+                
+                <footer>
+                    <button name="action_send_sms" string="Enviar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para abrir el Asistente -->
+    <record id="action_sms_es_compose_wizard" model="ir.actions.act_window">
+        <field name="name">Enviar SMS</field>
+        <field name="res_model">sms_es.compose.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

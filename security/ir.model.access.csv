@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sms_es_connector_settings_admin,res.config.settings,model_res_config_settings,base.group_system,1,1,1,1
+access_sms_es_queue_job_user,sms.es.queue.job.user,model_sms_es_queue_job,base.group_user,1,0,0,0
+access_sms_es_queue_job_admin,sms.es.queue.job.admin,model_sms_es_queue_job,base.group_system,1,1,1,1
+access_sms_es_compose_wizard,sms_es.compose.wizard,model_sms_es_compose_wizard,base.group_user,1,1,1,1
+access_sms_es_message_user,sms.es.message.user,model_sms_es_message,base.group_user,1,0,0,0
+access_sms_es_message_admin,sms.es.message.admin,model_sms_es_message,base.group_system,1,1,1,1

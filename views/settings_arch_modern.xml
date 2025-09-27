@@ -1,0 +1,129 @@
+
+            <xpath expr="//form[hasclass('oe_form_configuration')]" position="inside">
+                <div class="app_settings_block" data-string="SMS España Connector" string="SMS España Connector" data-key="sms_es_connector">
+                    <h2>Configuración de la API de SMS.es</h2>
+                    <div class="row mt16 o_settings_container">
+                        <!-- API Credentials -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="sms_es_api_username"/>
+                                <div class="text-muted">
+                                    Usuario de la API proporcionado por el proveedor.
+                                </div>
+                                <div>
+                                    <field name="sms_es_api_username"/>
+                                </div>
+                                <label for="sms_es_api_password" class="mt16"/>
+                                <field name="sms_es_api_password" widget="password"/>
+                            </div>
+                        </div>
+
+                        <!-- Sending Options -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <label for="sms_es_api_url"/>
+                                <div class="text-muted">
+                                    Endpoint para el envío de mensajes.
+                                </div>
+                                <field name="sms_es_api_url"/>
+                                
+                                <label for="sms_es_default_sender" class="mt16"/>
+                                <div class="text-muted">
+                                    Remitente por defecto (nombre o número).
+                                </div>
+                                <field name="sms_es_default_sender"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2>Configuración de Entrega (DLR)</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <label for="sms_es_dlr_mask"/>
+                                <div class="text-muted">
+                                    Máscara para solicitar estados de entrega.
+                                </div>
+                                <field name="sms_es_dlr_mask"/>
+
+                                <label for="sms_es_dlr_url" class="mt16"/>
+                                <div class="text-muted">
+                                    Configure esta URL en su proveedor de SMS.
+                                </div>
+                                <field name="sms_es_dlr_url" widget="CopyClipboardChar"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Opciones Avanzadas y Worker</h2>
+                     <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="sms_es_use_flash"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="sms_es_use_flash"/>
+                                <div class="text-muted">
+                                    Enviar como mensaje flash (no persistente).
+                                </div>
+                            </div>
+                            <div class="o_setting_left_pane mt16">
+                                <field name="sms_es_use_validate_period"/>
+                            </div>
+                            <div class="o_setting_right_pane mt16">
+                                <label for="sms_es_use_validate_period"/>
+                                <div class="text-muted">
+                                    Definir un tiempo límite de entrega para el mensaje.
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('sms_es_use_validate_period', '=', False)]}">
+                                    <div class="mt8">
+                                        <field name="sms_es_validate_period_minutes" class="oe_inline"/>
+                                        <span>minutos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                           <div class="o_setting_left_pane"/>
+                           <div class="o_setting_right_pane">
+                                <label for="sms_es_dcs"/>
+                                <div class="text-muted">
+                                   Define la codificación de caracteres.
+                                </div>
+                                <field name="sms_es_dcs" widget="radio"/>
+
+                                <label for="sms_es_cron_frequency_minutes" class="mt16"/>
+                                <div class="text-muted">
+                                    Intervalo de ejecución del worker de la cola.
+                                </div>
+                                <div class="mt8">
+                                    <field name="sms_es_cron_frequency_minutes" class="oe_inline"/>
+                                    <span>minutos</span>
+                                </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <h2>Seguridad del Webhook DLR</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <label for="sms_es_webhook_token"/>
+                                <div class="text-muted">
+                                    Token único para asegurar su endpoint de webhook.
+                                </div>
+                                <field name="sms_es_webhook_token" widget="CopyClipboardChar"/>
+
+                                <label for="sms_es_webhook_hmac_secret" class="mt16"/>
+                                <div class="text-muted">
+                                    (Opcional) Clave secreta para validar la firma HMAC.
+                                </div>
+                                <field name="sms_es_webhook_hmac_secret"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>

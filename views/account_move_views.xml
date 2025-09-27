@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_send_sms_account_move" model="ir.actions.act_window">
+        <field name="name">Enviar SMS</field>
+        <field name="res_model">sms_es.compose.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>
