@@ -49,6 +49,13 @@ class SmsEsMessage(models.Model):
     sale_order_id = fields.Many2one('sale.order', string='Pedido de Venta')
     account_move_id = fields.Many2one('account.move', string='Factura')
 
+    # relaciones para poder mostrar los eventos DLR en el formulario del mensaje
+    dlr_event_ids = fields.One2many(
+        'sms_es.dlr_event',
+        'message_id',
+        string="Historial de Entrega (DLR)"
+    )
+
     @api.model
     def _check_for_duplicates(self, sender, receiver, text):
         """

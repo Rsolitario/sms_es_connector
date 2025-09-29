@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ====================================================== -->
+    <!-- MENÚ RAÍZ ÚNICO PARA TODO EL MÓDULO                     -->
+    <!-- Este es el menú principal del que colgarán todas las   -->
+    <!-- demás opciones del addon (Dashboard, Mensajes, etc.)   -->
+    <!-- ====================================================== -->
+    <menuitem id="sms_es_connector_root_menu"
+              name="SMS Marketing"
+              sequence="50"/>
+
+    <!-- ====================================================== -->
+    <!-- VISTAS, ACCIÓN Y MENÚ PARA 'sms_es.message'          -->
+    <!-- ====================================================== -->
+
+    <!-- Vista de Búsqueda (Search) -->
+    <record id="view_sms_es_message_search" model="ir.ui.view">
+        <field name="name">sms_es.message.search</field>
+        <field name="model">sms_es.message</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Mensajes SMS">
+                <field name="receiver"/>
+                <field name="sender"/>
+                <field name="msg_id"/>
+                <field name="state"/>
+                <separator/>
+                <filter string="Entregados" name="filter_delivered" domain="[('state', '=', 'delivered')]"/>
+                <filter string="No Entregados" name="filter_undelivered" domain="[('state', '=', 'undelivered')]"/>
+                <filter string="Fallidos" name="filter_failed" domain="[('state', 'in', ['api_failed', 'rejected'])]"/>
+                <group expand="0" string="Agrupar por...">
+                    <filter string="Estado" name="group_by_state" context="{'group_by': 'state'}"/>
+                    <filter string="Remitente" name="group_by_sender" context="{'group_by': 'sender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vista de Lista (List/Tree) con decoraciones -->
+    <record id="view_sms_es_message_tree" model="ir.ui.view">
+        <field name="name">sms_es.message.tree</field>
+        <field name="model">sms_es.message</field>
+        <field name="arch" type="xml">
+            <list string="Mensajes SMS" decoration-success="state == 'delivered'" decoration-warning="state in ['queued', 'sending', 'api_sent']" decoration-danger="state in ['api_failed', 'undelivered', 'rejected']">
+                <field name="create_date" string="Fecha"/>
+                <field name="name"/>
+                <field name="sender"/>
+                <field name="receiver"/>
+                <field name="state" widget="badge"/>
+                <field name="num_parts"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista de Formulario con Notebook para el historial DLR -->
+    <record id="view_sms_es_message_form" model="ir.ui.view">
+        <field name="name">sms_es.message.form</field>
+        <field name="model">sms_es.message</field>
+        <field name="arch" type="xml">
+            <form string="Mensaje SMS">
+                <header>
+                    <!-- La sintaxis de 'invisible' también es directa -->
+                    <button name="action_queue_sms" string="Poner en Cola de Envío" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,queued,api_sent,delivered,undelled,rejected,api_failed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <!-- AHORA: readonly="expresion" -->
+                        <h1><field name="name" readonly="state != 'draft'"/></h1>
+                    </div>
+                    <group>
+                        <group string="Información del Mensaje">
+                            <field name="sender" readonly="state != 'draft'"/>
+                            <field name="receiver" readonly="state != 'draft'"/>
+                            <!-- El campo de texto también usa la nueva sintaxis -->
+                            <field name="text" placeholder="Escribe el contenido del SMS aquí..." readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Datos Técnicos">
+                            <field name="msg_id" readonly="1"/>
+                            <field name="num_parts" readonly="1"/>
+                            <field name="res_model" readonly="1"/>
+                            <field name="res_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Historial de Entrega (DLR)">
+                            <field name="dlr_event_ids" readonly="1">
+                                <list>
+                                    <field name="create_date" string="Fecha del Evento"/>
+                                    <field name="event"/>
+                                    <field name="errorCode"/>
+                                    <field name="errorMessage"/>
+                                    <field name="partNum"/>
+                                    <field name="numParts"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Acción de Ventana ÚNICA para Mensajes -->
+    <record id="action_sms_es_message" model="ir.actions.act_window">
+        <field name="name">Mensajes Enviados</field>
+        <field name="res_model">sms_es.message</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_sms_es_message_search"/>
+    </record>
+
+    <!-- Menú para Mensajes Enviados -->
+    <menuitem id="menu_sms_es_message"
+              name="Mensajes Enviados"
+              parent="sms_es_connector_root_menu"
+              action="action_sms_es_message"
+              sequence="10"/>
+
+    <!-- ====================================================== -->
+    <!-- VISTAS, ACCIÓN Y MENÚ PARA 'sms_es.queue_job'          -->
+    <!-- ====================================================== -->
+    
+    <!-- Vista de Lista para la Cola de Trabajos -->
+    <record id="sms_es_queue_job_view_tree" model="ir.ui.view">
+        <field name="name">sms_es.queue_job.list</field>
+        <field name="model">sms_es.queue_job</field>
+        <field name="arch" type="xml">
+            <list string="Cola de Trabajos SMS">
+                <field name="create_date" string="Fecha Creación"/>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="retry_count"/>
+                <field name="next_try_datetime"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista de Formulario para la Cola de Trabajos -->
+    <record id="sms_es_queue_job_view_form" model="ir.ui.view">
+        <field name="name">sms_es.queue_job.form</field>
+        <field name="model">sms_es.queue_job</field>
+        <field name="arch" type="xml">
+            <form string="Trabajo de la Cola SMS">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="message_id"/>
+                        <field name="state"/>
+                        <field name="retry_count"/>
+                        <field name="max_retries"/>
+                        <field name="next_try_datetime"/>
+                        <field name="error_message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción de Ventana para la Cola de Trabajos -->
+    <record id="sms_es_queue_job_action" model="ir.actions.act_window">
+        <field name="name">Cola de Trabajos SMS</field>
+        <field name="res_model">sms_es.queue_job</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <!-- Menú para la Cola de Envío -->
+    <menuitem id="sms_es_queue_job_menu"
+              name="Cola de Envío"
+              parent="sms_es_connector_root_menu"
+              action="sms_es_queue_job_action"
+              sequence="20"/>
+
+</odoo>

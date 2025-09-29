@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas de Gráfico para el modelo sms_es.message -->
+    <record id="view_sms_es_message_graph" model="ir.ui.view">
+        <field name="name">sms_es.message.graph</field>
+        <field name="model">sms_es.message</field>
+        <field name="arch" type="xml">
+            <graph string="Mensajes por Estado" type="bar">
+                <field name="state" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Vista de Dashboard (Formulario del modelo sms_es.dashboard) -->
+    <record id="view_sms_es_dashboard_form" model="ir.ui.view">
+        <field name="name">sms_es.dashboard.form</field>
+        <field name="model">sms_es.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard de SMS">
+                <sheet>
+                    <div class="oe_kpis" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+                        <div class="o_kanban_card" style="padding: 15px; text-align: center; border: 1px solid #ddd; border-radius: 5px;">
+                            <h4>Total Enviados</h4>
+                            <field name="total_sent" style="font-size: 2em;"/>
+                        </div>
+                        <div class="o_kanban_card" style="padding: 15px; text-align: center; border: 1px solid #ddd; border-radius: 5px;">
+                            <h4>Entregados</h4>
+                            <field name="total_delivered" style="font-size: 2em; color: green;"/>
+                        </div>
+                         <div class="o_kanban_card" style="padding: 15px; text-align: center; border: 1px solid #ddd; border-radius: 5px;">
+                            <h4>No Entregados</h4>
+                            <field name="total_undelivered" style="font-size: 2em; color: orange;"/>
+                        </div>
+                        <div class="o_kanban_card" style="padding: 15px; text-align: center; border: 1px solid #ddd; border-radius: 5px;">
+                            <h4>Fallidos</h4>
+                            <field name="total_failed" style="font-size: 2em; color: red;"/>
+                        </div>
+                    </div>
+                    <group>
+                        <h4>Tasa de Entrega</h4>
+                        <field name="delivery_rate" widget="progressbar"/>
+                    </group>
+                    <group>
+                        <h4>Análisis de Estados</h4>
+                        <div class="o_graph_container">
+                            <field name="message_count_by_state" widget="graph" view_mode="graph" view_id="view_sms_es_message_graph"/>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para el Dashboard -->
+    <record id="action_sms_es_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">sms_es.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="res_id" ref="sms_es_connector.sms_dashboard_data"/>
+    </record>
+
+    <!-- Menú del Dashboard -->
+    <menuitem id="menu_sms_es_dashboard" name="Dashboard" parent="sms_es_connector.sms_es_connector_root_menu" action="action_sms_es_dashboard" sequence="1"/>
+
+</odoo>

@@ -20,9 +20,13 @@
     'icon': 'sms_es_connector/static/description/icon.png',
     'data': [
         'security/ir.model.access.csv', # Asegúrate de crear este archivo
-        'views/sms_es_connector_menus.xml',        
+        #'views/sms_es_connector_menus.xml',        
         'data/sms_es_connector_cron.xml',
+        'data/sms_es_dashboard_data.xml',
         # Asistentes (Wizards)
+        'views/sms_es_dlr_event_views.xml',
+        'views/sms_es_message_views.xml',
+        'views/sms_es_dashboard_views.xml',
         'wizards/sms_compose_wizard_views.xml',
         'views/res_partner_views.xml',
         'views/crm_lead_views.xml',

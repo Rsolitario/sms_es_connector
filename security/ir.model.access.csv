@@ -5,3 +5,6 @@ access_sms_es_queue_job_admin,sms.es.queue.job.admin,model_sms_es_queue_job,base
 access_sms_es_compose_wizard,sms_es.compose.wizard,model_sms_es_compose_wizard,base.group_user,1,1,1,1
 access_sms_es_message_user,sms.es.message.user,model_sms_es_message,base.group_user,1,0,0,0
 access_sms_es_message_admin,sms.es.message.admin,model_sms_es_message,base.group_system,1,1,1,1
+access_sms_es_dlr_event_user,sms.es.dlr.event.user,model_sms_es_dlr_event,base.group_user,1,0,0,0
+access_sms_es_dlr_event_admin,sms.es.dlr.event.admin,model_sms_es_dlr_event,base.group_system,1,1,1,1
+access_sms_es_dashboard_user,sms.es.dashboard.user,model_sms_es_dashboard,base.group_user,1,0,0,0

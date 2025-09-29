@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vista de Lista (Tree) -->
+    <record id="view_sms_es_dlr_event_tree" model="ir.ui.view">
+        <field name="name">sms_es.dlr_event.list</field>
+        <field name="model">sms_es.dlr_event</field>
+        <field name="arch" type="xml">
+            <list string="Eventos DLR">
+                <field name="create_date"/>
+                <field name="message_id"/>
+                <field name="event"/>
+                <field name="errorCode"/>
+                <field name="errorMessage"/>
+                <field name="partNum"/>
+                <field name="numParts"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista de Formulario (Form) -->
+    <record id="view_sms_es_dlr_event_form" model="ir.ui.view">
+        <field name="name">sms_es.dlr_event.form</field>
+        <field name="model">sms_es.dlr_event</field>
+        <field name="arch" type="xml">
+            <form string="Evento DLR">
+                <sheet>
+                    <group>
+                        <field name="message_id"/>
+                        <field name="event"/>
+                        <field name="errorCode"/>
+                        <field name="errorMessage"/>
+                        <field name="partNum"/>
+                        <field name="numParts"/>
+                        <field name="sendTime"/>
+                        <field name="dlrTime"/>
+                        <field name="custom"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

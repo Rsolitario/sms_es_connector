@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Dato único para el dashboard -->
+    <data noupdate="1">
+        <record id="sms_dashboard_data" model="sms_es.dashboard">
+            <field name="name">SMS Dashboard Singleton</field>
+        </record>
+    </data>
+</odoo>

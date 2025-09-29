@@ -13,7 +13,7 @@ class ResConfigSettings(models.TransientModel):
     )
     sms_es_api_password = fields.Char(
         string="API Password",
-        password=True,
+        #password=True,
         config_parameter='sms_es_connector.api_password',
         help="Contraseña para la autenticación en la API."
     )
