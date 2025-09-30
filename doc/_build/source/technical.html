@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentación Técnica &mdash; documentación de SMS España Connector - 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=36c4ab74"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Guía de Usuario" href="user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SMS España Connector
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">Guía de Usuario</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentación Técnica</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#arquitectura-general">Arquitectura General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flujo-de-datos-del-envio-de-un-sms">Flujo de Datos del Envío de un SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flujo-de-datos-del-informe-de-entrega-dlr">Flujo de Datos del Informe de Entrega (DLR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guia-de-extension-y-personalizacion">Guía de Extensión y Personalización</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#anadir-soporte-para-un-nuevo-modelo-ej-project-task">Añadir Soporte para un Nuevo Modelo (Ej. <cite>project.task</cite>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SMS España Connector</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Documentación Técnica</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/technical.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="documentacion-tecnica">
+<h1>Documentación Técnica<a class="headerlink" href="#documentacion-tecnica" title="Link to this heading"></a></h1>
+<p>Esta sección detalla la arquitectura, el diseño técnico y las guías de extensión del módulo <strong>SMS España Connector</strong>. Está dirigida a desarrolladores y administradores de sistemas.</p>
+<nav class="contents local" id="tabla-de-contenidos">
+<p class="topic-title">Tabla de Contenidos</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#arquitectura-general" id="id1">Arquitectura General</a></p></li>
+<li><p><a class="reference internal" href="#flujo-de-datos-del-envio-de-un-sms" id="id2">Flujo de Datos del Envío de un SMS</a></p></li>
+<li><p><a class="reference internal" href="#flujo-de-datos-del-informe-de-entrega-dlr" id="id3">Flujo de Datos del Informe de Entrega (DLR)</a></p></li>
+<li><p><a class="reference internal" href="#guia-de-extension-y-personalizacion" id="id4">Guía de Extensión y Personalización</a></p>
+<ul>
+<li><p><a class="reference internal" href="#anadir-soporte-para-un-nuevo-modelo-ej-project-task" id="id5">Añadir Soporte para un Nuevo Modelo (Ej. <cite>project.task</cite>)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="arquitectura-general">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Arquitectura General</a><a class="headerlink" href="#arquitectura-general" title="Link to this heading"></a></h2>
+<p>El módulo está diseñado siguiendo un patrón robusto y desacoplado para garantizar la escalabilidad y la facilidad de mantenimiento. Los componentes principales son:</p>
+<ul class="simple">
+<li><p><strong>Cliente API (`models/sms_es_client.py`)</strong>: Una clase Python pura (no un modelo de Odoo) que encapsula toda la lógica de comunicación con la API del proveedor de SMS. Se encarga de construir los payloads JSON, manejar la autenticación, enviar las peticiones HTTP y procesar las respuestas, incluyendo una lógica de reintentos para errores transitorios (como throttling o errores de servidor).</p></li>
+<li><p><strong>Modelos de Datos Principales</strong>:
+- <cite>sms_es.message</cite>: El modelo central que representa un único mensaje SMS. Almacena el contenido, remitente, receptor, el estado del ciclo de vida y las referencias al registro de origen (ej., un Contacto o una Factura).
+- <cite>sms_es.queue_job</cite>: Gestiona la cola de envíos. Cada registro representa un intento de envío para un <cite>sms_es.message</cite>. Contiene la lógica de reintentos, backoff exponencial y el estado del trabajo en sí (pendiente, fallido, etc.).
+- <cite>sms_es.dlr_event</cite>: Almacena cada evento de informe de entrega (DLR) recibido desde el webhook del proveedor. Mantiene un historial detallado del viaje de un mensaje después de ser enviado.
+- <cite>res.config.settings</cite>: Extiende el modelo de configuración de Odoo para almacenar de forma centralizada todas las credenciales y ajustes del módulo.</p></li>
+<li><p><strong>Cola de Envío Asíncrona</strong>:
+- El sistema utiliza un <strong>Cron Job</strong> (<cite>ir.cron</cite>) de Odoo que se ejecuta a intervalos configurables.
+- Este cron job llama al método <cite>_process_sms_queue</cite> del modelo <cite>sms_es.queue_job</cite>.
+- Este método procesa los trabajos pendientes en lotes, asegurando que los envíos masivos no bloqueen la interfaz de usuario y se gestionen de forma eficiente en segundo plano.</p></li>
+<li><p><strong>Controlador de Webhook (`controllers/main.py`)</strong>:
+- Define un endpoint HTTP público (<cite>/sms_es_connector/webhook/dlr</cite>).
+- Está diseñado para recibir las peticiones POST (en formato JSON) que envía el proveedor de SMS con los informes de estado de entrega (DLRs).
+- Incluye capas de seguridad para validar las peticiones mediante un token en la URL y, opcionalmente, una firma HMAC-SHA256.</p></li>
+<li><p><strong>Asistente de Envío (`wizards/sms_compose_wizard.py`)</strong>:
+- Un modelo transitorio que proporciona la interfaz de usuario (pop-up) para componer y enviar SMS.
+- Se invoca desde diferentes modelos base (Contactos, Ventas, etc.) a través de acciones de servidor (<cite>ir.actions.act_window</cite>).</p></li>
+</ul>
+</section>
+<section id="flujo-de-datos-del-envio-de-un-sms">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Flujo de Datos del Envío de un SMS</a><a class="headerlink" href="#flujo-de-datos-del-envio-de-un-sms" title="Link to this heading"></a></h2>
+<p>El ciclo de vida de un mensaje sigue estos pasos:</p>
+<ol class="arabic simple">
+<li><p><strong>Creación</strong>: Un usuario selecciona registros (ej., Contactos) y utiliza la acción «Enviar SMS es».</p></li>
+<li><p><strong>Asistente</strong>: Se abre el <cite>sms_es.compose.wizard</cite>. El usuario redacta el mensaje y hace clic en «Enviar».</p></li>
+<li><p><strong>Generación de Mensajes</strong>: El método <cite>action_send_sms</cite> del asistente itera sobre los registros seleccionados. Para cada uno, crea un nuevo registro en <cite>sms_es.message</cite> con el estado inicial <cite>“draft”</cite>.</p></li>
+<li><p><strong>Encolado</strong>: El asistente llama al método <cite>action_queue_sms</cite> de los mensajes recién creados.</p></li>
+<li><p><strong>Deduplicación</strong>: <cite>action_queue_sms</cite> primero verifica si ya se ha enviado un mensaje idéntico (mismo remitente, receptor y texto) para evitar duplicados. Si es un duplicado, el mensaje se marca como <cite>“cancelled”</cite>.</p></li>
+<li><p><strong>Creación del Trabajo</strong>: Si no es un duplicado, se crea un registro en <cite>sms_es.queue_job</cite> para cada mensaje, y el estado del mensaje se actualiza a <cite>“queued”</cite>.</p></li>
+<li><p><strong>Procesamiento del Cron</strong>: El cron job se ejecuta y llama a <cite>_process_sms_queue</cite>.</p></li>
+<li><p><strong>Ejecución del Trabajo</strong>: El worker encuentra los trabajos pendientes, los marca como <cite>“in_progress”</cite> y utiliza el <cite>SmsEsClient</cite> para enviar el SMS a la API externa.</p></li>
+<li><p><strong>Respuesta de la API</strong>:
+- <strong>Éxito</strong>: El estado del mensaje se actualiza a <cite>“api_sent”</cite>, y el trabajo en la cola se marca como <cite>“success”</cite>.
+- <strong>Fallo</strong>: El método <cite>_handle_send_failure</cite> gestiona el error. Si quedan reintentos, se reprograma el trabajo para más tarde. Si no, el trabajo se marca como <cite>“failed”</cite> y el mensaje como <cite>“api_failed”</cite>.</p></li>
+</ol>
+</section>
+<section id="flujo-de-datos-del-informe-de-entrega-dlr">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Flujo de Datos del Informe de Entrega (DLR)</a><a class="headerlink" href="#flujo-de-datos-del-informe-de-entrega-dlr" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Recepción</strong>: El proveedor de SMS envía una petición POST al endpoint <cite>/sms_es_connector/webhook/dlr</cite>.</p></li>
+<li><p><strong>Validación de Seguridad</strong>: El controlador primero valida el token de la URL y la firma HMAC (si está configurada). Si la validación falla, devuelve un error <cite>401 Unauthorized</cite> o <cite>403 Forbidden</cite>.</p></li>
+<li><p><strong>Parseo</strong>: El cuerpo JSON de la petición se decodifica.</p></li>
+<li><p><strong>Conciliación</strong>: El controlador busca el registro <cite>sms_es.message</cite> correspondiente. La búsqueda se prioriza de la siguiente manera:
+a. Por el <cite>odoo_message_id</cite> enviado en el campo <cite>custom</cite> de la petición original.
+b. Como fallback, por el <cite>msgId</cite> (UUID de la API) devuelto por el proveedor.</p></li>
+<li><p><strong>Actualización de Estado</strong>: Si se encuentra el mensaje, su estado se actualiza según el evento del DLR (ej., <cite>“DELIVERED”</cite> actualiza el estado a <cite>“delivered”</cite>).</p></li>
+<li><p><strong>Creación de Evento</strong>: Se crea un nuevo registro en <cite>sms_es.dlr_event</cite> para almacenar todos los detalles del DLR, creando un historial auditable.</p></li>
+<li><p><strong>Respuesta</strong>: Se devuelve un estado <cite>200 OK</cite> al proveedor para confirmar que el DLR ha sido procesado y que no debe volver a enviarlo.</p></li>
+</ol>
+</section>
+<section id="guia-de-extension-y-personalizacion">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Guía de Extensión y Personalización</a><a class="headerlink" href="#guia-de-extension-y-personalizacion" title="Link to this heading"></a></h2>
+<p>El módulo ha sido diseñado para ser fácilmente extensible.</p>
+<section id="anadir-soporte-para-un-nuevo-modelo-ej-project-task">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Añadir Soporte para un Nuevo Modelo (Ej. <cite>project.task</cite>)</a><a class="headerlink" href="#anadir-soporte-para-un-nuevo-modelo-ej-project-task" title="Link to this heading"></a></h3>
+<p>Para permitir el envío de SMS desde el modelo <cite>project.task</cite>, siga estos pasos:</p>
+<ol class="arabic">
+<li><p><strong>Extender `sms_es.message`</strong>:
+Añada un campo <cite>Many2one</cite> a <cite>project.task</cite> en el modelo <cite>sms_es.message</cite> para crear la relación.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># en models/sms_es_message.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SmsEsMessage</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;sms_es.message&#39;</span>
+
+    <span class="n">project_task_id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2one</span><span class="p">(</span><span class="s1">&#39;project.task&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s1">&#39;Tarea del Proyecto&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Extender el Asistente para obtener el número</strong>:
+Hereda del modelo <cite>sms_es.compose.wizard</cite> y extiende el método <cite>_get_recipient_number</cite> para que sepa cómo encontrar un número de teléfono en un registro de <cite>project.task</cite>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># en un nuevo archivo, ej. models/project_task.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SmsComposeWizard</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">TransientModel</span><span class="p">):</span>
+    <span class="n">_inherit</span> <span class="o">=</span> <span class="s1">&#39;sms_es.compose.wizard&#39;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_recipient_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">res_model</span> <span class="o">==</span> <span class="s1">&#39;project.task&#39;</span><span class="p">:</span>
+            <span class="c1"># Lógica para encontrar el número, ej., a través del cliente de la tarea</span>
+            <span class="k">if</span> <span class="n">record</span><span class="o">.</span><span class="n">partner_id</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">record</span><span class="o">.</span><span class="n">partner_id</span><span class="o">.</span><span class="n">mobile</span> <span class="ow">or</span> <span class="n">record</span><span class="o">.</span><span class="n">partner_id</span><span class="o">.</span><span class="n">phone</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">SmsComposeWizard</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_get_recipient_number</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Añadir la Acción a la Vista</strong>:
+Crea un archivo XML para añadir la acción de «Enviar SMS es» a las vistas de lista y formulario de <cite>project.task</cite>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- en un nuevo archivo, ej. views/project_task_views.xml --&gt;</span>
+<span class="nt">&lt;record</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;action_send_sms_project_task&quot;</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;ir.actions.act_window&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>Enviar<span class="w"> </span>SMS<span class="w"> </span>es<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;res_model&quot;</span><span class="nt">&gt;</span>sms_es.compose.wizard<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;view_mode&quot;</span><span class="nt">&gt;</span>form<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;target&quot;</span><span class="nt">&gt;</span>new<span class="nt">&lt;/field&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;binding_model_id&quot;</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;project.model_project_task&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;binding_view_types&quot;</span><span class="nt">&gt;</span>list,form<span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/record&gt;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="user_guide.html" class="btn btn-neutral float-left" title="Guía de Usuario" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Rafael Solitario.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

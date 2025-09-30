@@ -28,11 +28,13 @@
                                 </div>
                                 <field name="sms_es_api_url"/>
                                 
-                                <label for="sms_es_default_sender" class="mt16"/>
-                                <div class="text-muted">
-                                    Remitente por defecto (nombre o número).
+                                <div>
+                                    <label for="sms_es_default_sender" class="mt16"/>
+                                    <div class="text-muted">
+                                        Remitente por defecto (nombre o número).
+                                    </div>
+                                    <field name="sms_es_default_sender"/>
                                 </div>
-                                <field name="sms_es_default_sender"/>
                             </div>
                         </div>
                     </div>
@@ -48,11 +50,13 @@
                                 </div>
                                 <field name="sms_es_dlr_mask"/>
 
-                                <label for="sms_es_dlr_url" class="mt16"/>
-                                <div class="text-muted">
-                                    Configure esta URL en su proveedor de SMS.
+                                <div>
+                                    <label for="sms_es_dlr_url" class="mt16"/>
+                                    <div class="text-muted">
+                                        Configure esta URL en su proveedor de SMS.
+                                    </div>
+                                    <field name="sms_es_dlr_url" widget="CopyClipboardChar"/>
                                 </div>
-                                <field name="sms_es_dlr_url" widget="CopyClipboardChar"/>
                             </div>
                         </div>
                     </div>
@@ -77,7 +81,7 @@
                                 <div class="text-muted">
                                     Definir un tiempo límite de entrega para el mensaje.
                                 </div>
-                                <div class="content-group" attrs="{'invisible': [('sms_es_use_validate_period', '=', False)]}">
+                                <div class="content-group" invisible = "not sms_es_use_validate_period">
                                     <div class="mt8">
                                         <field name="sms_es_validate_period_minutes" class="oe_inline"/>
                                         <span>minutos</span>
@@ -116,12 +120,14 @@
                                     Token único para asegurar su endpoint de webhook.
                                 </div>
                                 <field name="sms_es_webhook_token" widget="CopyClipboardChar"/>
-
-                                <label for="sms_es_webhook_hmac_secret" class="mt16"/>
-                                <div class="text-muted">
-                                    (Opcional) Clave secreta para validar la firma HMAC.
+                                
+                                <div>
+                                    <label for="sms_es_webhook_hmac_secret" class="mt16"/>
+                                    <div class="text-muted">
+                                        (Opcional) Clave secreta para validar la firma HMAC.
+                                    </div>
+                                    <field name="sms_es_webhook_hmac_secret"/>
                                 </div>
-                                <field name="sms_es_webhook_hmac_secret"/>
                             </div>
                         </div>
                     </div>

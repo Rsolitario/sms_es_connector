@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de Usuario &mdash; documentación de SMS España Connector - 1.0.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=36c4ab74"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Documentación Técnica" href="technical.html" />
+    <link rel="prev" title="SMS España Connector" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SMS España Connector
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guía de Usuario</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion">Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-inicial">Configuración Inicial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuracion-de-la-api">Configuración de la API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuracion-de-entrega-dlr">Configuración de Entrega (DLR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seguridad-del-webhook-dlr">Seguridad del Webhook DLR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opciones-avanzadas-y-worker">Opciones Avanzadas y Worker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#envio-de-un-sms">Envío de un SMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#seguimiento-y-analisis">Seguimiento y Análisis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dashboard">Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mensajes-enviados">Mensajes Enviados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cola-de-envio">Cola de Envío</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Documentación Técnica</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SMS España Connector</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guía de Usuario</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/user_guide.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guia-de-usuario">
+<h1>Guía de Usuario<a class="headerlink" href="#guia-de-usuario" title="Link to this heading"></a></h1>
+<p>Bienvenido a la guía de usuario del módulo <strong>SMS España Connector</strong>. Este documento explica en detalle cómo instalar, configurar y utilizar todas las funcionalidades del módulo para gestionar sus campañas de marketing por SMS directamente desde Odoo.</p>
+<nav class="contents local" id="tabla-de-contenidos">
+<p class="topic-title">Tabla de Contenidos</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#instalacion" id="id1">Instalación</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-inicial" id="id2">Configuración Inicial</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuracion-de-la-api" id="id3">Configuración de la API</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-entrega-dlr" id="id4">Configuración de Entrega (DLR)</a></p></li>
+<li><p><a class="reference internal" href="#seguridad-del-webhook-dlr" id="id5">Seguridad del Webhook DLR</a></p></li>
+<li><p><a class="reference internal" href="#opciones-avanzadas-y-worker" id="id6">Opciones Avanzadas y Worker</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#envio-de-un-sms" id="id7">Envío de un SMS</a></p></li>
+<li><p><a class="reference internal" href="#seguimiento-y-analisis" id="id8">Seguimiento y Análisis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dashboard" id="id9">Dashboard</a></p></li>
+<li><p><a class="reference internal" href="#mensajes-enviados" id="id10">Mensajes Enviados</a></p></li>
+<li><p><a class="reference internal" href="#cola-de-envio" id="id11">Cola de Envío</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="instalacion">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Instalación</a><a class="headerlink" href="#instalacion" title="Link to this heading"></a></h2>
+<p>Para instalar el módulo, siga estos sencillos pasos:</p>
+<ol class="arabic simple">
+<li><p>Acceda a su instancia de Odoo como administrador.</p></li>
+<li><p>Navegue al menú de <strong>Apps</strong>.</p></li>
+<li><p>En la barra de búsqueda, elimine el filtro «Apps» por defecto y busque «SMS España Connector».</p></li>
+<li><p>Cuando aparezca la tarjeta del módulo, haga clic en el botón <strong>Instalar</strong>.</p></li>
+</ol>
+<p>Una vez completada la instalación, un nuevo menú principal llamado <strong>SMS Marketing</strong> aparecerá en su panel de Odoo.</p>
+</section>
+<section id="configuracion-inicial">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Configuración Inicial</a><a class="headerlink" href="#configuracion-inicial" title="Link to this heading"></a></h2>
+<p>Antes de poder enviar mensajes, es fundamental configurar correctamente la conexión con su proveedor de SMS.</p>
+<ol class="arabic simple">
+<li><p>Navegue a <strong>SMS Marketing &gt; Ajustes SMS España</strong>.</p></li>
+<li><p>La pantalla de configuración está dividida en varias secciones:</p></li>
+</ol>
+<section id="configuracion-de-la-api">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Configuración de la API</a><a class="headerlink" href="#configuracion-de-la-api" title="Link to this heading"></a></h3>
+<p>Estos son los datos de autenticación para conectar con su proveedor.</p>
+<ul class="simple">
+<li><p><strong>API Username</strong>: Su nombre de usuario de la API, proporcionado por el proveedor de SMS.</p></li>
+<li><p><strong>API Password</strong>: La contraseña o clave secreta asociada a su cuenta de API.</p></li>
+<li><p><strong>URL del Endpoint de Envío</strong>: La URL específica a la que Odoo enviará las peticiones para enviar SMS. Consulte la documentación de su proveedor para obtener la URL correcta.</p></li>
+<li><p><strong>Remitente por Defecto</strong>: El nombre o número de teléfono que aparecerá como remitente de los SMS. Puede ser un nombre alfanumérico (ej., «MiEmpresa») o un número de teléfono.</p></li>
+</ul>
+</section>
+<section id="configuracion-de-entrega-dlr">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Configuración de Entrega (DLR)</a><a class="headerlink" href="#configuracion-de-entrega-dlr" title="Link to this heading"></a></h3>
+<p>Esta sección es crucial para que Odoo pueda recibir actualizaciones sobre el estado de los mensajes enviados (si fueron entregados, fallaron, etc.).</p>
+<ul class="simple">
+<li><p><strong>URL del Webhook DLR</strong>: Esta es la URL <strong>que debe copiar</strong> y pegar en el panel de configuración de su proveedor de SMS. Es la dirección a la que el proveedor enviará las notificaciones de estado de entrega.</p></li>
+<li><p><strong>Máscara DLR</strong>: Un valor numérico que le dice al proveedor qué tipos de notificaciones de estado desea recibir. El valor por defecto (<cite>19</cite>) es el recomendado, ya que solicita notificaciones para mensajes entregados, no entregados y rechazados.</p></li>
+</ul>
+</section>
+<section id="seguridad-del-webhook-dlr">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Seguridad del Webhook DLR</a><a class="headerlink" href="#seguridad-del-webhook-dlr" title="Link to this heading"></a></h3>
+<p>Para proteger su sistema de peticiones no autorizadas, el webhook utiliza dos niveles de seguridad:</p>
+<ul class="simple">
+<li><p><strong>Webhook Secret Token</strong>: Un token único generado por Odoo. Se añade automáticamente a la URL del webhook.</p></li>
+<li><p><strong>Webhook HMAC Secret</strong>: (Opcional, pero recomendado) Una clave secreta adicional que puede configurar. Si la establece, el proveedor debe usar esta clave para generar una firma digital en cada petición de DLR. Odoo verificará esta firma para garantizar que la petición es auténtica.</p></li>
+</ul>
+</section>
+<section id="opciones-avanzadas-y-worker">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Opciones Avanzadas y Worker</a><a class="headerlink" href="#opciones-avanzadas-y-worker" title="Link to this heading"></a></h3>
+<p>Aquí puede ajustar el comportamiento de los envíos:</p>
+<ul class="simple">
+<li><p><strong>Activar Mensajes Flash</strong>: Si se marca, los SMS se enviarán como «mensajes flash», que aparecen directamente en la pantalla del destinatario y no se guardan en su bandeja de entrada.</p></li>
+<li><p><strong>Activar Periodo de Validez</strong>: Permite definir un tiempo máximo (en minutos) durante el cual la red intentará entregar el mensaje. Si el destinatario no está disponible durante ese tiempo, el mensaje expirará.</p></li>
+<li><p><strong>Codificación de Datos (DCS)</strong>: Permite elegir entre <code class="docutils literal notranslate"><span class="pre">GSM</span></code> (para texto estándar, hasta 160 caracteres) y <code class="docutils literal notranslate"><span class="pre">UCS-2</span></code> (para caracteres especiales y emojis, hasta 70 caracteres).</p></li>
+<li><p><strong>Frecuencia del Worker</strong>: Define cada cuántos minutos se procesará la cola de envíos. Un valor bajo (ej., <cite>1</cite> minuto) es ideal para envíos rápidos.</p></li>
+</ul>
+</section>
+</section>
+<section id="envio-de-un-sms">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Envío de un SMS</a><a class="headerlink" href="#envio-de-un-sms" title="Link to this heading"></a></h2>
+<p>El módulo permite enviar SMS de forma masiva desde los principales modelos de Odoo a través del menú «Acción».</p>
+<ol class="arabic simple">
+<li><p>Navegue a la vista de lista de uno de los siguientes modelos:
+- <strong>Contactos</strong>
+- <strong>CRM &gt; Oportunidades</strong>
+- <strong>Ventas &gt; Pedidos de Venta</strong>
+- <strong>Facturación &gt; Facturas de Cliente</strong></p></li>
+<li><p>Seleccione uno o varios registros marcando las casillas de verificación.</p></li>
+<li><p>Haga clic en el menú <strong>Acción</strong>.</p></li>
+<li><p>Seleccione la opción <strong>Enviar SMS es</strong>.</p></li>
+</ol>
+<p>Se abrirá una ventana emergente donde podrá:</p>
+<ul class="simple">
+<li><p><strong>Verificar el Remitente</strong>: Por defecto, se usará el configurado en los ajustes.</p></li>
+<li><p><strong>Escribir el Mensaje</strong>: Redacte el contenido del SMS.</p></li>
+<li><p><strong>Elegir la Codificación</strong>: Asegúrese de que coincida con el tipo de caracteres que está utilizando.</p></li>
+<li><p><strong>Configurar Opciones Avanzadas</strong>: Si están activadas en los ajustes, puede decidir si usar «Mensaje Flash» o un «Periodo de Validez» para este envío en particular.</p></li>
+</ul>
+<p>Al hacer clic en <strong>Enviar</strong>, los mensajes no se envían inmediatamente, sino que se añaden a una cola para ser procesados en segundo plano, garantizando que el sistema no se ralentice.</p>
+</section>
+<section id="seguimiento-y-analisis">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Seguimiento y Análisis</a><a class="headerlink" href="#seguimiento-y-analisis" title="Link to this heading"></a></h2>
+<p>El módulo proporciona varias herramientas para monitorizar sus envíos.</p>
+<section id="dashboard">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Dashboard</a><a class="headerlink" href="#dashboard" title="Link to this heading"></a></h3>
+<p>El dashboard, accesible desde <strong>SMS Marketing &gt; Dashboard</strong>, le proporciona una visión general del rendimiento de sus campañas con indicadores clave (KPIs):</p>
+<ul class="simple">
+<li><p><strong>Total Enviados</strong>: El número de mensajes que han sido aceptados por la API de su proveedor.</p></li>
+<li><p><strong>Entregados</strong>: El número de mensajes confirmados como entregados al destinatario.</p></li>
+<li><p><strong>No Entregados</strong>: Mensajes que no pudieron ser entregados (ej., el teléfono estaba apagado).</p></li>
+<li><p><strong>Fallidos</strong>: Mensajes rechazados por la API o por la red.</p></li>
+<li><p><strong>Tasa de Entrega</strong>: Un gráfico de progreso que muestra el porcentaje de mensajes entregados sobre el total de mensajes que alcanzaron un estado final.</p></li>
+</ul>
+</section>
+<section id="mensajes-enviados">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Mensajes Enviados</a><a class="headerlink" href="#mensajes-enviados" title="Link to this heading"></a></h3>
+<p>En <strong>SMS Marketing &gt; Mensajes Enviados</strong>, encontrará un historial completo de todos los SMS. La lista utiliza códigos de colores para identificar rápidamente el estado de cada mensaje:</p>
+<ul class="simple">
+<li><p><strong>Verde</strong>: Entregado con éxito.</p></li>
+<li><p><strong>Naranja/Amarillo</strong>: En proceso (en cola, enviando, etc.).</p></li>
+<li><p><strong>Rojo</strong>: Fallido o no entregado.</p></li>
+</ul>
+<p>Puede hacer clic en cualquier mensaje para ver sus detalles, incluyendo el historial completo de los eventos de entrega (DLRs) recibidos del proveedor.</p>
+</section>
+<section id="cola-de-envio">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Cola de Envío</a><a class="headerlink" href="#cola-de-envio" title="Link to this heading"></a></h3>
+<p>El menú <strong>SMS Marketing &gt; Cola de Envío</strong> muestra todos los mensajes que están esperando ser procesados por el worker. Es útil para supervisar el flujo de envíos masivos y diagnosticar posibles retrasos.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="../index.html" class="btn btn-neutral float-left" title="SMS España Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="technical.html" class="btn btn-neutral float-right" title="Documentación Técnica" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Rafael Solitario.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

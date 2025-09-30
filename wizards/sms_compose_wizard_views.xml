@@ -12,17 +12,17 @@
                     <field name="dcs" widget="radio"/>
                 </group>
 
-                <group string="Opciones Avanzadas" name="advanced_options">
+                <group string="Opciones Avanzadas" name="advanced_options" invisible="not config_use_flash or not config_use_validate_period">
                     <field name="config_use_flash" invisible="1"/>
                     <field name="config_use_validate_period" invisible="1"/>
-                    
                     <div invisible="not config_use_flash">
                         <field name="use_flash"/>
                     </div>
+                    <label for="use_flash"/>
                     <!-- attr compatibilidad por preparar-->
                     <div invisible="not config_use_validate_period">
                         <field name="use_validate_period"/>
-                        <label for="validate_period_minutes" invisible="not use_validate_period" />
+                        <label for="validate_period_minutes"/>
                         <div class="o_row" invisible="not use_validate_period">
                             <field name="validate_period_minutes"/>
                             <span>minutos</span>

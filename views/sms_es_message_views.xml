@@ -82,20 +82,6 @@
                             <field name="res_id" readonly="1"/>
                         </group>
                     </group>
-                    <notebook>
-                        <page string="Historial de Entrega (DLR)">
-                            <field name="dlr_event_ids" readonly="1">
-                                <list>
-                                    <field name="create_date" string="Fecha del Evento"/>
-                                    <field name="event"/>
-                                    <field name="errorCode"/>
-                                    <field name="errorMessage"/>
-                                    <field name="partNum"/>
-                                    <field name="numParts"/>
-                                </list>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>

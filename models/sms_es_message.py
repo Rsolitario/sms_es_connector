@@ -56,6 +56,26 @@ class SmsEsMessage(models.Model):
         string="Historial de Entrega (DLR)"
     )
 
+    # ====================================================== #
+    # MÉTODO PARA VALORES POR DEFECTO AL CREAR MANUALMENTE     #
+    # ====================================================== #
+    @api.model
+    def default_get(self, fields_list):
+        # Llama al método original para obtener los valores por defecto estándar
+        res = super(SmsEsMessage, self).default_get(fields_list)
+        
+        # Solo si el campo 'sender' está siendo inicializado
+        if 'sender' in fields_list:
+            # Obtenemos el parámetro directamente de la configuración
+            config_param = self.env['ir.config_parameter'].sudo()
+            default_sender = config_param.get_param('sms_es_connector.default_sender')
+            
+            # Asignamos el valor al diccionario de resultados
+            # El 'or ''' asegura que si no hay nada, se ponga una cadena vacía
+            res['sender'] = default_sender or ''
+            
+        return res
+    
     @api.model
     def _check_for_duplicates(self, sender, receiver, text):
         """

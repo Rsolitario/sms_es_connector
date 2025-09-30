@@ -1,0 +1,821 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sms_es_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-29 12:11+0000\n"
+"PO-Revision-Date: 2025-09-29 12:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "(Opcional) Clave secreta para validar la firma HMAC."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_compose_wizard_view_form
+msgid "<span>minutos</span>"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_api_password
+msgid "API Password"
+msgstr "Contraseña de la API"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_api_username
+msgid "API Username"
+msgstr "Nombre de Usuario de la API"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_use_flash
+msgid "Activar Mensajes Flash"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_use_validate_period
+msgid "Activar Periodo de Validez"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "Agrupar por..."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.ui.menu,name:sms_es_connector.sms_es_connector_config_settings_menu
+msgid "Ajustes SMS España"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.act_window,name:sms_es_connector.sms_es_connector_config_settings_action
+msgid "Ajustes de SMS España Connector"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+msgid "Análisis de Estados"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model,name:sms_es_connector.model_sms_es_compose_wizard
+msgid "Asistente para Componer y Enviar SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__draft
+msgid "Borrador"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "Buscar Mensajes SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__cancelled
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_queue_job__state__cancelled
+msgid "Cancelado"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_compose_wizard_view_form
+msgid "Cancelar"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__partner_id
+msgid "Cliente"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__dcs
+msgid "Codificación"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_dcs
+msgid "Codificación de Datos (DCS)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.ui.menu,name:sms_es_connector.sms_es_queue_job_menu
+msgid "Cola de Envío"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.act_window,name:sms_es_connector.sms_es_queue_job_action
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_queue_job_view_tree
+msgid "Cola de Trabajos SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model,name:sms_es_connector.model_sms_es_queue_job
+msgid "Cola de Trabajos de SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model,name:sms_es_connector.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuración"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__config_use_flash
+msgid "Config Use Flash"
+msgstr "Enviar como Mensaje Flash"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__config_use_validate_period
+msgid "Config Use Validate Period"
+msgstr "Configuración Periodo de Validez"
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Configuración de Entrega (DLR)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Configuración de la API de SMS.es"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Configure esta URL en su proveedor de SMS."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__retry_count
+msgid "Contador de Reintentos"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__text
+msgid "Contenido del Mensaje"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_api_password
+msgid "Contraseña para la autenticación en la API."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__create_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__create_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__create_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__create_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__create_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__create_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__create_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__create_date
+msgid "Created on"
+msgstr "Fecha de creación"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__errorCode
+msgid "Código de Error"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__dlr_buffered
+msgid "DLR Buffered"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__dlr_sent_to_smsc
+msgid "DLR Enviado a SMSC"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.act_window,name:sms_es_connector.action_sms_es_dashboard
+#: model:ir.ui.menu,name:sms_es_connector.menu_sms_es_dashboard
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: sms_es_connector
+#: model:ir.model,name:sms_es_connector.model_sms_es_dashboard
+msgid "Dashboard de KPIs de SMS"
+msgstr "Tablero de KPIs de SMS"
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+msgid "Dashboard de SMS"
+msgstr "Tablero de SMS"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__custom
+msgid "Datos Personalizados"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Datos Técnicos"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Define la codificación de caracteres."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Definir un tiempo límite de entrega para el mensaje."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__name
+msgid "Descripción"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__display_name
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__display_name
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__display_name
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__display_name
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__queued
+msgid "En Cola"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_queue_job__state__in_progress
+msgid "En Progreso"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Endpoint para el envío de mensajes."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__delivered
+msgid "Entregado"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__total_delivered
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "Entregados"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__api_sent
+msgid "Enviado a la API"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__sending
+msgid "Enviando"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_compose_wizard_view_form
+msgid "Enviar"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_compose_wizard_view_form
+msgid "Enviar Mensaje SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.act_window,name:sms_es_connector.action_send_sms_account_move
+#: model:ir.actions.act_window,name:sms_es_connector.action_sms_es_compose_wizard
+msgid "Enviar SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.act_window,name:sms_es_connector.action_send_sms_crm_lead
+#: model:ir.actions.act_window,name:sms_es_connector.action_send_sms_partner
+#: model:ir.actions.act_window,name:sms_es_connector.action_send_sms_sale_order
+msgid "Enviar SMS es"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__use_flash
+msgid "Enviar como Mensaje Flash"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Enviar como mensaje flash (no persistente)."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_compose_wizard_view_form
+msgid "Escriba su mensaje aquí..."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Escribe el contenido del SMS aquí..."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__use_validate_period
+msgid "Establecer Periodo de Validez"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__state
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__state
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "Estado"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__event
+msgid "Evento"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dlr_event_form
+msgid "Evento DLR"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model,name:sms_es_connector.model_sms_es_dlr_event
+msgid "Evento de Estado de Entrega (DLR)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dlr_event_tree
+msgid "Eventos DLR"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__account_move_id
+msgid "Factura"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_queue_job__state__failed
+msgid "Fallido"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "Fallidos"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__total_failed
+msgid "Fallidos (API + Rechazados)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__api_failed
+msgid "Fallo en la API"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_tree
+msgid "Fecha"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_queue_job_view_tree
+msgid "Fecha Creación"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Fecha del Evento"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_cron_frequency_minutes
+msgid "Frecuencia del Worker (minutos)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_compose_wizard__dcs__gsm
+msgid "GSM (Estándar, 160 caracteres)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__res_config_settings__sms_es_dcs__gsm
+msgid "GSM (caracteres estándar)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__dlr_event_ids
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Historial de Entrega (DLR)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__messages_over_time
+msgid "Historial de Envíos"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__id
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__id
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__id
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__id
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__id
+msgid "ID"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__res_id
+msgid "ID del Registro de Origen"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__res_ids_str
+msgid "IDs de Origen"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Información del Mensaje"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Intervalo de ejecución del worker de la cola."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_cron_frequency_minutes
+msgid "Intervalo en minutos con el que el cron procesará la cola de envíos."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__write_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__write_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__write_uid
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__write_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__write_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__write_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__write_date
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__write_date
+msgid "Last Updated on"
+msgstr "Fecha de última actualización"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__text
+msgid "Mensaje"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model,name:sms_es_connector.model_sms_es_message
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__message_id
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__message_id
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Mensaje SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__errorMessage
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__error_message
+msgid "Mensaje de Error"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.act_window,name:sms_es_connector.action_sms_es_message
+#: model:ir.ui.menu,name:sms_es_connector.menu_sms_es_message
+msgid "Mensajes Enviados"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_tree
+msgid "Mensajes SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__message_count_by_state
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_graph
+msgid "Mensajes por Estado"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__res_model
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__res_model
+msgid "Modelo de Origen"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_dlr_mask
+msgid "Máscara DLR"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Máscara para solicitar estados de entrega."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__max_retries
+msgid "Máximos Reintentos"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__name
+msgid "Name"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__undelivered
+msgid "No Entregado"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__total_undelivered
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "No Entregados"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_api_username
+msgid "Nombre de usuario para la autenticación en la API de SMS.es."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__name
+msgid "Nombre del Trabajo"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__partNum
+msgid "Número de Parte"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__num_parts
+msgid "Número de Partes"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_compose_wizard_view_form
+msgid "Opciones Avanzadas"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Opciones Avanzadas y Worker"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__lead_id
+msgid "Oportunidad/Lead"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__sale_order_id
+msgid "Pedido de Venta"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_queue_job__state__pending
+msgid "Pendiente"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_validate_period_minutes
+msgid "Periodo de Validez (minutos)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_use_validate_period
+msgid "Permite definir un tiempo máximo de validez para el mensaje en la red."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_form
+msgid "Poner en Cola de Envío"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__priority
+msgid "Prioridad"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__next_try_datetime
+msgid "Próximo Intento"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__receiver
+msgid "Receptor"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_message__state__rejected
+msgid "Rechazado"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__sender
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__sender
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_message_search
+msgid "Remitente"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_default_sender
+msgid "Remitente por Defecto"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Remitente por defecto (nombre o número)."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_default_sender
+msgid "Remitente que se usará si no se especifica uno."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_queue_job__delay_seconds
+msgid "Retardo (segundos)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "SMS España Connector"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.ui.menu,name:sms_es_connector.sms_es_connector_root_menu
+msgid "SMS Marketing"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.actions.server,name:sms_es_connector.ir_cron_sms_queue_worker_ir_actions_server
+msgid "SMS-ES: Procesar Cola de Envíos"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Seguridad del Webhook DLR"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_use_flash
+msgid ""
+"Si se activa, los mensajes se enviarán como 'flash' (no se guardan en el "
+"dispositivo)."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_webhook_hmac_secret
+msgid ""
+"Si se establece, se usará para verificar la firma HMAC-SHA256 de la "
+"solicitud."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+msgid "Tasa de Entrega"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__delivery_rate
+msgid "Tasa de Entrega (%)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__dlrTime
+msgid "Tiempo de DLR (s)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__sendTime
+msgid "Tiempo de Envío (s)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_validate_period_minutes
+msgid "Tiempo en minutos durante el cual el SMS será válido para su entrega."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_webhook_token
+msgid ""
+"Token secreto para añadir a la URL del webhook como medida de seguridad."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Token único para asegurar su endpoint de webhook."
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.view_sms_es_dashboard_form
+msgid "Total Enviados"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dashboard__total_sent
+msgid "Total Enviados (API)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_dlr_event__numParts
+msgid "Total de Partes"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.sms_es_queue_job_view_form
+msgid "Trabajo de la Cola SMS"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_compose_wizard__dcs__ucs
+msgid "UCS-2 (Unicode, 70 caracteres)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__res_config_settings__sms_es_dcs__ucs
+msgid "UCS-2 (caracteres especiales/Unicode)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_api_url
+msgid "URL completa del endpoint de la API para el envío de SMS."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_api_url
+msgid "URL del Endpoint de Envío"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_dlr_url
+msgid "URL del Webhook DLR"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_dlr_url
+msgid "URL que debe configurar en su proveedor de SMS para recibir los DLRs."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_message__msg_id
+msgid "UUID de la API"
+msgstr ""
+
+#. module: sms_es_connector
+#: model_terms:ir.ui.view,arch_db:sms_es_connector.res_config_settings_view_form_inherit_sms_es_connector
+msgid "Usuario de la API proporcionado por el proveedor."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_sms_es_compose_wizard__validate_period_minutes
+msgid "Validez (minutos)"
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,help:sms_es_connector.field_res_config_settings__sms_es_dlr_mask
+msgid ""
+"Valor numérico para solicitar informes de entrega (DLR). Recomendado: 19 "
+"(Suma de 1=DELIVERED, 2=UNDELIVERED, 16=REJECTED)."
+msgstr ""
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_webhook_hmac_secret
+msgid "Webhook HMAC Secret"
+msgstr "Secreto HMAC del webhook"
+
+#. module: sms_es_connector
+#: model:ir.model.fields,field_description:sms_es_connector.field_res_config_settings__sms_es_webhook_token
+msgid "Webhook Secret Token"
+msgstr "Token Secreto del Webhook"
+
+#. module: sms_es_connector
+#: model:ir.model.fields.selection,name:sms_es_connector.selection__sms_es_queue_job__state__success
+msgid "Éxito"
+msgstr ""

@@ -3,6 +3,7 @@ import logging
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 
+
 _logger = logging.getLogger(__name__)
 
 class SmsComposeWizard(models.TransientModel):
@@ -31,19 +32,26 @@ class SmsComposeWizard(models.TransientModel):
 
     @api.model
     def default_get(self, fields_list):
+        # Asegúrate de tener 'import logging' y '_logger = ...' al principio del archivo
+        _logger.info("WIZARD: Ejecutando default_get para el asistente de envío...")
+        
         res = super(SmsComposeWizard, self).default_get(fields_list)
-        config = self.env['ir.config_parameter'].sudo()
+        
+        # --- MÉTODO DIRECTO PARA DIAGNÓSTICO ---
+        config_param = self.env['ir.config_parameter'].sudo()
+        
+        default_sender = config_param.get_param('sms_es_connector.default_sender', 'VALOR_NO_ENCONTRADO')
+        _logger.info(f"WIZARD: Valor de 'sender' leído directamente: '{default_sender}'")
 
-        # Cargar valores por defecto desde la configuración
         res.update({
-            'sender': config.get_param('sms_es_connector.default_sender', ''),
-            'dcs': config.get_param('sms_es_connector.dcs', 'gsm'),
-            'config_use_flash': config.get_param('sms_es_connector.use_flash', False),
-            'config_use_validate_period': config.get_param('sms_es_connector.use_validate_period', False),
-            'validate_period_minutes': int(config.get_param('sms_es_connector.validate_period_minutes', 1440)),
+            'sender': default_sender if default_sender != 'VALOR_NO_ENCONTRADO' else '',
+            'dcs': config_param.get_param('sms_es_connector.dcs', 'gsm'),
+            'config_use_flash': config_param.get_param('sms_es_connector.use_flash', False),
+            'config_use_validate_period': config_param.get_param('sms_es_connector.use_validate_period', False),
+            'validate_period_minutes': int(config_param.get_param('sms_es_connector.validate_period_minutes', 1440)),
         })
 
-        # Cargar el contexto (registros seleccionados)
+        # Cargar el contexto (esta parte está bien)
         if self.env.context.get('active_model'):
             res['res_model'] = self.env.context['active_model']
         if self.env.context.get('active_ids'):

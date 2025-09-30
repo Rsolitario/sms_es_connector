@@ -17,7 +17,6 @@
         'sale_management',
         'account',
     ],
-    'icon': 'sms_es_connector/static/description/icon.png',
     'data': [
         'security/ir.model.access.csv', # Asegúrate de crear este archivo
         #'views/sms_es_connector_menus.xml',        
