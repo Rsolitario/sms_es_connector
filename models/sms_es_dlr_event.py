@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields
 
+try:
+    JsonField = fields.Json
+except AttributeError:
+    JsonField = fields.Text
+
 class SmsEsDlrEvent(models.Model):
     _name = 'sms_es.dlr_event'
     _description = 'Evento de Estado de Entrega (DLR)'
@@ -14,4 +19,4 @@ class SmsEsDlrEvent(models.Model):
     numParts = fields.Integer(string='Total de Partes')
     sendTime = fields.Float(string='Tiempo de Envío (s)')
     dlrTime = fields.Float(string='Tiempo de DLR (s)')
-    custom = fields.Json(string='Datos Personalizados')
+    custom = JsonField(string='Datos Personalizados')

@@ -14,6 +14,8 @@ try:
 except ImportError:
     from odoo.tools import release
 
+module_path = os.path.dirname(__file__)
+
 # ==============================================================================
 # SECCIÓN DE AYUDANTES (HELPERS) - ESTAS FUNCIONES YA ESTÁN PERFECTAS
 # ==============================================================================
@@ -78,6 +80,75 @@ def _configure_cron_job(env, odoo_version):
     except ValueError:
         _logger.warning("   -> No se encontró el cron 'ir_cron_sms_queue_worker'.")
 
+# =====================================================================
+# Retrocompatibilidad para la vista de message
+# =====================================================================
+def _configure_message_view(env, odoo_version):
+    _logger.info("Configurando la vista de mensajes...")
+    if odoo_version >= 17:
+        _logger.info("   -> Odoo v17+ detectada, no se requieren cambios en la vista de mensajes.")
+        return
+    try:
+        view_to_patch = env.ref('sms_es_connector.view_sms_es_message_form')
+        # arquitectura antigua
+        legacy_arch_file = 'views/sms_es_message_views_legacy.xml'
+        module_path = os.path.dirname(__file__)
+        file_path = os.path.join(module_path, legacy_arch_file)
+        with misc.file_open(file_path, 'r') as f:
+            arch_content = f.read()
+        
+        # escribir cambios
+        view_to_patch.sudo().write({'arch': arch_content})
+        _logger.info(f"   -> Vista de mensajes actualizada a la arquitectura legacy desde '{legacy_arch_file}'para Odoo < v17.")
+    except Exception as e:
+        _logger.error("   -> No se pudo actualizar la arquitectura de la vista de mensajes: %s", e)
+
+# ====================================================================
+# Retrocompatibilidad para la vista de wizard
+# ====================================================================
+def _configure_compose_wizard_view(env, odoo_version):
+    _logger.info("Configurando la vista del asistente de composición wizard")
+    if odoo_version >= 17:
+        _logger.info("   -> Odoo v17+ detectada, no se requieren cambios en la vista del asistente.")
+        return
+    try:
+        view_to_patch = env.ref('sms_es_connector.sms_es_compose_wizard_view_form')
+        legacy_arch_file = 'wizards/sms_compose_wizard_views_lagacy.xml'
+        module_path = os.path.dirname(__file__)
+        file_path = os.path.join(module_path, legacy_arch_file)
+        with misc.file_open(file_path, 'r') as f:
+            arch_content = f.read()
+        
+        view_to_patch.sudo().write({'arch': arch_content})
+        _logger.info(f"   -> Vista del asistente actualizada a la arquitectura legacy desde '{legacy_arch_file}' para Odoo < v17.")
+    except Exception as e:  
+        _logger.error("   -> No se pudo actualizar la arquitectura de la vista del asistente: %s", e)
+
+# ==============================================================================
+# compatibilidad para tree, list
+# ==============================================================================
+def _configure_list_views_compatibility(env, odoo_version):
+    _logger.info("Configurando la vista de lista (<list> vs <tree>)")
+    if odoo_version >= 18:
+        _logger.info("  -> No se necesitan cambios en las vistas de lista para Odoo v%s.", odoo_version)
+        return
+    views_to_patch = [
+        ('sms_es_connector.sms_es_dlr_event_views', 'views/sms_es_dlr_event_views_legacy.xml')
+        ]
+    
+    for view_xml_id, legacy_file in views_to_patch:
+        try:
+            view = env.ref(view_xml_id)
+            file_path = os.path.join(module_path, legacy_file)
+
+            with misc.file_open(file_path, 'r') as f:
+                arch_content = f.read()
+
+            view.sudo.write({'arch': arch_content})
+            _logger.info (f"  -> Vista '{view.name}' actualizada para usar <tree> desde '{legacy_file}'.")
+        except Exception as e:
+            _logger.error("  -> No se pudo parchear la vista '%s': %s", view_xml_id, e)
+
 # ==============================================================================
 # FUNCIÓN PRINCIPAL DEL HOOK (VERSIÓN UNIVERSAL Y CORRECTA)
 # ==============================================================================
@@ -110,5 +181,8 @@ def _post_init_hook(*args):
     
     _configure_settings_view(env, odoo_version)
     _configure_cron_job(env, odoo_version)
+    _configure_message_view(env, odoo_version)
+    _configure_compose_wizard_view(env, odoo_version)
+    _configure_list_views_compatibility(env, odoo_version)
     
     _logger.info("== Post-Init Hook completado con éxito. ==")

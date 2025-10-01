@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Vista Formulario del Asistente -->
+    <data noupdate="1"><!-- procesado con parser mas estricto -->
     <record id="sms_es_compose_wizard_view_form" model="ir.ui.view">
         <field name="name">sms_es.compose.wizard.form</field>
         <field name="model">sms_es.compose.wizard</field>
@@ -37,6 +38,7 @@
             </form>
         </field>
     </record>
+    </data>
 
     <!-- Acción para abrir el Asistente -->
     <record id="action_sms_es_compose_wizard" model="ir.actions.act_window">

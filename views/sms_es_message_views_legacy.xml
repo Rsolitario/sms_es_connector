@@ -1,0 +1,40 @@
+<form string="Mensaje SMS">
+    <header>
+        <!-- Sintaxis antigua con attrs -->
+        <button name="action_queue_sms" string="Poner en Cola de Envío" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+        <field name="state" widget="statusbar" statusbar_visible="draft,queued,api_sent,delivered,undelled,rejected,api_failed"/>
+    </header>
+    <sheet>
+        <div class="oe_title">
+            <!-- Sintaxis antigua con attrs -->
+            <h1><field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/></h1>
+        </div>
+        <group>
+            <group string="Información del Mensaje">
+                <field name="sender" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="receiver" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                <field name="text" placeholder="Escribe el contenido del SMS aquí..." attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+            </group>
+            <group string="Datos Técnicos">
+                <field name="msg_id" readonly="1"/>
+                <field name="num_parts" readonly="1"/>
+                <field name="res_model" readonly="1"/>
+                <field name="res_id" readonly="1"/>
+            </group>
+        </group>
+        <notebook>
+            <page string="Historial de Entrega (DLR)">
+                <field name="dlr_event_ids" readonly="1">
+                    <list>
+                        <field name="create_date" string="Fecha del Evento"/>
+                        <field name="event"/>
+                        <field name="errorCode"/>
+                        <field name="errorMessage"/>
+                        <field name="partNum"/>
+                        <field name="numParts"/>
+                    </list>
+                </field>
+            </page>
+        </notebook>
+    </sheet>
+</form>

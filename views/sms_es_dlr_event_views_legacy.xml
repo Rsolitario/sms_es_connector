@@ -1,0 +1,9 @@
+<tree string="Eventos DLR">
+    <field name="create_date"/>
+    <field name="message_id"/>
+    <field name="event"/>
+    <field name="errorCode"/>
+    <field name="errorMessage"/>
+    <field name="partNum"/>
+    <field name="numParts"/>
+</tree>

@@ -1,0 +1,34 @@
+<form string="Enviar Mensaje SMS">
+    <group>
+        <field name="sender"/>
+        <field name="text" widget="textarea" placeholder="Escriba su mensaje aquí..."/>
+        <field name="dcs" widget="radio"/>
+    </group>
+
+    <group string="Opciones Avanzadas" name="advanced_options">
+        <field name="config_use_flash" invisible="1"/>
+        <field name="config_use_validate_period" invisible="1"/>
+        
+        <!-- Convertido a attrs -->
+        <div attrs="{'invisible': [('config_use_flash', '=', False)]}">
+            <field name="use_flash"/>
+        </div>
+
+        <!-- Convertido a attrs -->
+        <div attrs="{'invisible': [('config_use_validate_period', '=', False)]}">
+            <field name="use_validate_period"/>
+            <!-- Convertido a attrs -->
+            <label for="validate_period_minutes" attrs="{'invisible': [('use_validate_period', '=', False)]}" />
+            <!-- Convertido a attrs -->
+            <div class="o_row" attrs="{'invisible': [('use_validate_period', '=', False)]}">
+                <field name="validate_period_minutes"/>
+                <span>minutos</span>
+            </div>
+        </div>
+    </group>
+    
+    <footer>
+        <button name="action_send_sms" string="Enviar" type="object" class="btn-primary"/>
+        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+    </footer>
+</form>
