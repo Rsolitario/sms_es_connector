@@ -90,8 +90,9 @@ class ResConfigSettings(models.TransientModel):
         help="Si se establece, se usará para verificar la firma HMAC-SHA256 de la solicitud."
     )
 
+    
     @api.model
-    def get_values(self):
+    def get_values(self): 
         res = super(ResConfigSettings, self).get_values()
         # Cargar la frecuencia actual del cron job
         cron = self.env.ref('sms_es_connector.ir_cron_sms_queue_worker', raise_if_not_found=False)

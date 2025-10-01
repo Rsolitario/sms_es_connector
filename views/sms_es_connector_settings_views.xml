@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- 1. El Placeholder. Correcto, no se toca. -->
-    <record id="res_config_settings_view_form_inherit_sms_es_connector" model="ir.ui.view">
-        <field name="name">res.config.settings.view.form.inherit.sms.placeholder</field>
-        <field name="model">res.config.settings</field>
-        <field name="arch" type="xml">
-            <form/>
-        </field>
-    </record>
+    <data noupdate="1"><!-- procesado con parser mas estricto -->
+        <!-- 1. El Placeholder. Correcto, no se toca. -->
+        <record id="res_config_settings_view_form_inherit_sms_es_connector" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sms.placeholder</field>
+            <field name="model">res.config.settings</field>
+            <field name="arch" type="xml">
+                <form/>
+            </field>
+        </record>
 
-    <!-- 2. La Acción de Ventana para abrir los ajustes. -->
-    <record id="sms_es_connector_config_settings_action" model="ir.actions.act_window">
-        <field name="name">Ajustes de SMS España Connector</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">res.config.settings</field>
-        <field name="view_mode">form</field>
-        <field name="target">inline</field>
-        <field name="context">{'module' : 'sms_es_connector'}</field>
-    </record>
+        <!-- 2. La Acción de Ventana para abrir los ajustes. -->
+        <record id="sms_es_connector_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Ajustes de SMS España Connector</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'sms_es_connector'}</field>
+        </record>
 
-    <!-- 3. El Menú para acceder a la Acción. -->
-    <menuitem id="sms_es_connector_config_settings_menu"
-              name="Ajustes SMS España"
-              sequence="100"
-              parent="sms_es_connector_root_menu"
-              action="sms_es_connector_config_settings_action"/>
+        <!-- 3. El Menú para acceder a la Acción. -->
+        <menuitem id="sms_es_connector_config_settings_menu"
+                name="Ajustes SMS España"
+                sequence="100"
+                parent="sms_es_connector_root_menu"
+                action="sms_es_connector_config_settings_action"/>
+    </data>
 </odoo>
