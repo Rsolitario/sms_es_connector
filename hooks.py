@@ -129,25 +129,44 @@ def _configure_compose_wizard_view(env, odoo_version):
 # ==============================================================================
 def _configure_list_views_compatibility(env, odoo_version):
     _logger.info("Configurando la vista de lista (<list> vs <tree>)")
-    if odoo_version >= 18:
-        _logger.info("  -> No se necesitan cambios en las vistas de lista para Odoo v%s.", odoo_version)
-        return
     views_to_patch = [
-        ('sms_es_connector.sms_es_dlr_event_views', 'views/sms_es_dlr_event_views_legacy.xml')
-        ]
+        ('sms_es_connector.view_sms_es_dlr_event_views', 'views/sms_es_dlr_event_views_moderm.xml', 'views/sms_es_dlr_event_views_legacy.xml', '')
+    ]
     
-    for view_xml_id, legacy_file in views_to_patch:
+    for view_xml_id, moderm_file, legacy_file, act_window in views_to_patch:
+        if odoo_version >= 18:
+            arch_file = moderm_file
+            _logger.info("  -> Uso de la vista '%s' para Odoo %s.", moderm_file, odoo_version)
+        else:
+            arch_file = legacy_file
+            _logger.info("  -> Uso de la vista '%s' para Odoo %s.", legacy_file, odoo_version)
+
         try:
             view = env.ref(view_xml_id)
-            file_path = os.path.join(module_path, legacy_file)
+            file_path = os.path.join(module_path, arch_file)
 
             with misc.file_open(file_path, 'r') as f:
                 arch_content = f.read()
 
             view.sudo.write({'arch': arch_content})
-            _logger.info (f"  -> Vista '{view.name}' actualizada para usar <tree> desde '{legacy_file}'.")
+            _logger.info (f"  -> Vista '{view.name}' actualizada para usar <tree> desde '{arch_file}'.")
         except Exception as e:
             _logger.error("  -> No se pudo parchear la vista '%s': %s", view_xml_id, e)
+        
+        # parche para acción de ventana
+        if act_window != '' and odoo_version < 18:
+            _logger.info(f"Configrando el view_mode para la acción de ventana '{act_window}'")
+            try:
+                action_xml_id = act_window
+                action = env.ref(action_xml_id)
+                current_view_mode = action.view_mode or ''
+                legacy_view_mode = current_view_mode.replace('list', 'tree')
+
+                if legacy_view_mode != current_view_mode:
+                    action.sudo().write({'view_mode': legacy_view_mode})
+                    _logger.info(f"  -> Acción '{action.name}' actualizada a view_mode='{legacy_view_mode}' para compatibilidad con odoo {odoo_version}.")
+            except Exception as e:
+                _logger.error("  -> No se pudo parchear la acción de ventana '%s%: %s", action_xml_id, e)
 
 # ==============================================================================
 # FUNCIÓN PRINCIPAL DEL HOOK (VERSIÓN UNIVERSAL Y CORRECTA)

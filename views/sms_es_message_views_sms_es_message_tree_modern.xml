@@ -1,0 +1,8 @@
+<list string="Mensajes SMS" decoration-success="state == 'delivered'" decoration-warning="state in ['queued', 'sending', 'api_sent']" decoration-danger="state in ['api_failed', 'undelivered', 'rejected']">
+    <field name="create_date" string="Fecha"/>
+    <field name="name"/>
+    <field name="sender"/>
+    <field name="receiver"/>
+    <field name="state" widget="badge"/>
+    <field name="num_parts"/>
+</list>

@@ -2,21 +2,15 @@
 <odoo>
 
     <!-- Vista de Lista (Tree) -->
+    <data noupdate="1">
     <record id="view_sms_es_dlr_event_tree" model="ir.ui.view">
         <field name="name">sms_es.dlr_event.list</field>
         <field name="model">sms_es.dlr_event</field>
         <field name="arch" type="xml">
-            <list string="Eventos DLR">
-                <field name="create_date"/>
-                <field name="message_id"/>
-                <field name="event"/>
-                <field name="errorCode"/>
-                <field name="errorMessage"/>
-                <field name="partNum"/>
-                <field name="numParts"/>
-            </list>
+            <form/>
         </field>
     </record>
+    </data>
 
     <!-- Vista de Formulario (Form) -->
     <record id="view_sms_es_dlr_event_form" model="ir.ui.view">

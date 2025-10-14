@@ -37,6 +37,7 @@
     </record>
 
     <!-- Vista de Lista (List/Tree) con decoraciones -->
+    <data noupdate="1">
     <record id="view_sms_es_message_tree" model="ir.ui.view">
         <field name="name">sms_es.message.tree</field>
         <field name="model">sms_es.message</field>
@@ -51,6 +52,7 @@
             </list>
         </field>
     </record>
+    </data>
 
     <!-- Vista de Formulario con Notebook para el historial DLR -->
     <data noupdate="1">
@@ -109,6 +111,7 @@
     <!-- ====================================================== -->
     
     <!-- Vista de Lista para la Cola de Trabajos -->
+    <data noupdate="1">
     <record id="sms_es_queue_job_view_tree" model="ir.ui.view">
         <field name="name">sms_es.queue_job.list</field>
         <field name="model">sms_es.queue_job</field>
@@ -122,6 +125,7 @@
             </list>
         </field>
     </record>
+    </data>
 
     <!-- Vista de Formulario para la Cola de Trabajos -->
     <record id="sms_es_queue_job_view_form" model="ir.ui.view">

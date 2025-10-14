@@ -1,0 +1,7 @@
+<list string="Cola de Trabajos SMS">
+    <field name="create_date" string="Fecha Creación"/>
+    <field name="name"/>
+    <field name="state"/>
+    <field name="retry_count"/>
+    <field name="next_try_datetime"/>
+</list>
