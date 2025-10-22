@@ -6,7 +6,8 @@
     'category': 'Marketing/SMS Marketing',
     'summary': 'Conector para envío de SMS a través de proveedores españoles.',
     'description': """
-        Este módulo proporciona una base para conectar Odoo con APIs de proveedores de SMS en España.
+        Este módulo proporciona una base para conectar Odoo 
+        con APIs de proveedores de SMS en España.
         - Gestiona el envío de mensajes SMS.
         - Sistema de cola para envíos masivos.
         - Seguimiento de los estados de entrega (DLR).
